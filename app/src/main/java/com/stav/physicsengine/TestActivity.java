@@ -1,12 +1,12 @@
 package com.stav.physicsengine;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
@@ -20,6 +20,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         im1 = findViewById(R.id.imageView1);
         im2 = findViewById(R.id.imageView2);
+        PhysicsHandler physicsHandler = new PhysicsHandler();
     }
 
     @Override
@@ -37,11 +38,11 @@ public class TestActivity extends AppCompatActivity {
 
                     PhysicsObject po1 = new PhysicsObject("Image 1", im1CenterX, im1CenterY, im1.getWidth(), im1.getHeight(), 5);
                     PhysicsObject po2 = new PhysicsObject("Image 2", im2CenterX, im2CenterY, im2.getWidth(), im2.getHeight(), 5);
+                    Log.v("SCREEN_INFO", String.format(Locale.getDefault(), "Screen Dimensions: {\n\tscreen width: %d\n\tscreen height: %d\n}", PhysicsObject.MAX_X, PhysicsObject.MAX_Y));
                     Log.v("PHYSICS_OBJECT", po1.toString());
                     Log.v("IMAGE_VIEW", imageViewMsg(im1));
                     Log.v("PHYSICS_OBJECT", po2.toString());
                     Log.v("IMAGE_VIEW", imageViewMsg(im2));
-                    Log.v("SCREEN_INFO", String.format(Locale.getDefault(), "screen width: %d\nscreen height: %d", PhysicsObject.MAX_X, PhysicsObject.MAX_Y));
                 }
             }
         });
